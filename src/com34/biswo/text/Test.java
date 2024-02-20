@@ -14,7 +14,7 @@ public class Test {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
             while(true) {
-                System.out.println("What you want from our web-site ! select from folling options:");
+                System.out.println("What you want from our web-site ! select from fllowing options:");
                 System.out.println("1.Create a Account                   :");
                 System.out.println("2.Check your Account details         :");
                 System.out.println("3.Deposite amount to your Account    :");
