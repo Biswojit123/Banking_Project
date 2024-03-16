@@ -229,4 +229,47 @@ public class HolderDataImplematation implements HolderData {
         }
         return false;
     }
+
+    @Override
+    public String loginPage(String userName,String passWord) {
+        String query = "select * from Validtion_tbl where USER_NAME = ? and PASSWORD = ? ";
+        try {
+            con = ConnectionFactory.getConnection();
+            pst = con.prepareStatement(query);
+            pst.setString(1, userName);
+            pst.setString(2, passWord);
+            rs = pst.executeQuery();
+            if(rs.next()) {
+                status = "Log in Sucessfully!";
+            }else {
+                status = "Invalid UserName And Password";
+            }
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+
+    @Override
+    public String signInPage(String UserName,String passWord) {
+        String query = "insert into Validtion_tbl values(?,?)";
+
+        try {
+            con = ConnectionFactory.getConnection();
+            pst = con.prepareStatement(query);
+            pst.setString(1, UserName);
+            pst.setString(2, passWord);
+
+            int rowCount = pst.executeUpdate();
+
+            if( rowCount > 0 ) {
+                status = "SignUp Sucessfully!";
+            }else {
+                status = "Account Already Exist";
+            }
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
 }

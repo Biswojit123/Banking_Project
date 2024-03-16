@@ -47,4 +47,18 @@ public class AcountServiceImp implements AccountService {
         return status;
     }
 
+    @Override
+    public String login(String UserName , String Password) {
+        holdata = HolderDataFactory.getHolderData();
+        status = holdata.loginPage(UserName, Password);
+        return status;
+    }
+
+    @Override
+    public String signUp(String UserName , String password) {
+        holdata = HolderDataFactory.getHolderData();
+        status = holdata.signInPage(UserName, password);
+        return status;
+    }
+
 }
